@@ -2,16 +2,29 @@ const Tarefa = require('../models/tarefaModel');
 
 const tarefas = []; //ou pode ser: let
 
-function getTarefas(req, res) { 
-    //tarefas=Tarefa.listarTarefa();
+async function getTarefas(req, res) { 
+    tarefas= await Tarefa.listarTarefas();
     res.render('tarefas', { tarefas }); //'tarefas' = tarefas.ejs, este recebe um objeto chamado tarefas que contem o conteúdo das tarefas
 } 
 
-function addTarefa(req, res) { 
+async function addTarefa(req, res) { 
     const { title } = req.body; //const {title, description}=req.body
-    const tarefa = new Tarefa(Date.now(), title, false); 
-    tarefas.push(tarefa); 
+    const tarefa = new Tarefa(null, title, null); 
+    await tarefa.salvar();
+    //tarefas.push(tarefa); 
     res.redirect('/tarefas'); 
 } 
 
-module.exports = { getTarefas, addTarefa, };
+/*async function removeTarefa(req, res){
+
+}
+
+async function updateTarefa(req, res){
+
+}
+
+async function deleteTarefa(req, res){
+    req.query.id; //tarefa?id=5
+}*/
+
+module.exports = { getTarefas, addTarefa };//getTarefas, addTarefa, removeTarefa, updateTarefa, deleteTarefa

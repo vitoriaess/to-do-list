@@ -12,7 +12,12 @@ const port = 3000;
     //ROTA
     app.get('/',(req,res)=>{res.send('<h1>Tarefas</h1>')});
     app.get('/tarefas', tarefaController.getTarefas); 
-    app.post('/tarefas', tarefaController.addTarefa); 
+    app.post('/tarefa', tarefaController.addTarefa); 
+    //app.delete('tarefa', tarefaController.deleteTarefa);
+    //app.put('/tarefa', tarefaController.updateTarefa);
+    //app.get('/tarefa/edit', tarefaController.editTarefa);
+    //app.get('/tarefa', tarefaController.searchTarefa);
+
 
     app.listen(port, () => { 
     console.log(`Servidor rodando em http://localhost:${port}`);

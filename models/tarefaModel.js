@@ -5,14 +5,16 @@ class Tarefa {
     this.description = description; 
     } 
 
-    /*static listarTarefas(){
-        const Database = require('Database');
-        let = tarefas = Database.query("SELECT FROM tarefas")
-        return tarefas;
+    static async listarTarefas(){
+        const Database = require('./Database');
+        return await Database.query("SELECT * FROM tarefa");
     }
-    save(){
-        
-    }*/
+
+    async salvar(){
+        const Database = require('./Database');
+        let resp = await Database.query('INSERT INTO tarefa (title, description) VALUES('${this.title}','${this.description}')');
+        this.id=resp.insertId;
+    }
 } 
 module.exports = Tarefa;
     
