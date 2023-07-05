@@ -3,7 +3,9 @@ async function connect(){
         return global.connection;
     const mysql = require("mysql2/promise");
     const connection = await mysql.createConnection({
-        
+        host: "localhost",
+        user: "root",
+        database: "todolist"
     });
 
     console.log("Voce esta conectado no MySQL");

@@ -6,7 +6,7 @@
     <body> 
         <h1>Lista de Tarefas</h1> 
             <ul> 
-                <% tarefas.forEach(tarefa => { %> <li><%= tarefa.title %></li> <% }); %> 
+                <% tarefas.forEach(tarefa => { %> <li><%= tarefa.nome_tarefa %></li> <% }); %> 
             </ul> 
         <form action="/tarefa" method="POST"> 
             <input type="text" name="title" placeholder="Nova Tarefa"> 

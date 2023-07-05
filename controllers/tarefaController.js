@@ -1,9 +1,7 @@
 const Tarefa = require('../models/tarefaModel'); 
 
-const tarefas = []; //ou pode ser: let
-
 async function getTarefas(req, res) { 
-    tarefas= await Tarefa.listarTarefas();
+    const tarefas = await Tarefa.listarTarefas();
     res.render('tarefas', { tarefas }); //'tarefas' = tarefas.ejs, este recebe um objeto chamado tarefas que contem o conteúdo das tarefas
 } 
 
